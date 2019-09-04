@@ -1,0 +1,46 @@
+body {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+main {
+    width: 835px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    cursor: pointer;
+}
+
+#big {
+    position: absolute;
+    top: 165px;
+    cursor: default;
+}
+
+#big img {
+    width: 435px;
+    height: 300px;
+}
+
+.close {
+    position: absolute;
+    top: 250px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    background: url(../img/close.png);
+    background-size: 100%;
+}
+
+.noselect {
+	-webkit-touch-callout: none; /* iOS Safari */
+	  -webkit-user-select: none; /* Safari */
+	   -khtml-user-select: none; /* Konqueror HTML */
+		 -moz-user-select: none; /* Firefox */
+		  -ms-user-select: none; /* Internet Explorer/Edge */
+			  user-select: none; /* Non-prefixed version, currently 
+                                    supported by Chrome and Opera */
+}
