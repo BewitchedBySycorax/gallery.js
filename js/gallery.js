@@ -30,10 +30,18 @@ var gallery = {
             this.index = parseInt(e.target.getAttribute('data-id')) - 1;
 
             this.show();
-            
+
         }
     },
     show: function() {
+        if ( this.image ) {
+            this.image.remove();
+        }
+
+        var src = this.items[this.index];
+        this.image = document.createElement('img');
+        this.image.src = src;
+        this.el.appendChild(this.image);
         console.log('show');
     },
 };
