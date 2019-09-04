@@ -31,6 +31,9 @@ var gallery = {
 
             this.show();
 
+        } else if ( this.image && e.target.className == 'close' ) {
+            console.log(e);
+            this.image.remove();
         }
     },
     show: function() {
@@ -42,7 +45,6 @@ var gallery = {
         this.image = document.createElement('img');
         this.image.src = src;
         this.el.appendChild(this.image);
-        console.log('show');
     },
 };
 
