@@ -1,11 +1,13 @@
 var gallery = {
+    KEY_LEFT: 37,
+    KEY_RIGHT: 39,
     init: function() {
-        console.log('init');
         this.items = [ 'img/1.jpg', 'img/2.jpg', 'img/3.jpg' ];
         this.el = document.getElementById('big');
         this.image = null;
         this.index = 0;
         document.addEventListener('click', this.onClick.bind(this));
+        document.addEventListener('keydown', this.changePicture.bind(this));
     },
     onClick: function(e) {
         if ( e.target.id == 'prev' ) {
@@ -32,8 +34,36 @@ var gallery = {
             this.show();
 
         } else if ( this.image && e.target.className == 'close' ) {
-            console.log(e);
             this.image.remove();
+        }
+    },
+    changePicture: function(e) {
+        switch( e.keyCode ) {
+            case this.KEY_LEFT:
+                e.preventDefault();
+
+                --this.index;
+
+                if ( this.index < 0 ) {
+                    this.index = this.items.length - 1;
+                }
+
+                this.show();
+                break;
+
+            case this.KEY_RIGHT:
+                e.preventDefault();
+
+                ++this.index;
+
+                if ( this.index >= this.items.length ) {
+                    this.index = 0;
+                }
+
+                this.show();
+                break;
+            default:
+                break;
         }
     },
     show: function() {
